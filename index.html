@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación interactiva para administrar el padrón de socios de un club o gimnasio.">
+    <title>Gestión de Socios | Club / Gimnasio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/gimnasio.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="js/socio.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header class="encabezado">
+        <img src="assets/gimnasio.svg" alt="Ícono de gimnasio" class="logo">
+        <div>
+            <h1>Sistema de Gestión de Socios</h1>
+            <p>Administración del padrón de un club / gimnasio</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="grid-container" aria-label="Registro y controles">
+            <article class="card-panel">
+                <h2>Registrar nuevo socio</h2>
+                <form id="form-socio" novalidate>
+                    <label for="reg-nombre">Nombre completo</label>
+                    <input type="text" id="reg-nombre" placeholder="Ej.: Juan Pérez" maxlength="60" autocomplete="name" required>
+
+                    <label for="reg-edad">Edad</label>
+                    <input type="number" id="reg-edad" placeholder="Edad" min="1" max="110" step="1" required>
+
+                    <label for="reg-categoria">Categoría</label>
+                    <select id="reg-categoria" required>
+                        <option value="">Seleccione una categoría</option>
+                        <option value="Musculación">Musculación</option>
+                        <option value="Pase Libre">Pase Libre</option>
+                        <option value="Crossfit">Crossfit</option>
+                        <option value="VIP Premium">VIP Premium</option>
+                    </select>
+
+                    <label for="reg-cuota">Cuota mensual ($)</label>
+                    <input type="text" id="reg-cuota" placeholder="Se completa según la categoría" readonly aria-readonly="true">
+                    <button type="submit" id="btn-registrar">Agregar socio al padrón</button>
+                </form>
+            </article>
+
+            <article class="card-panel">
+                <h2>Controles y filtros</h2>
+                <label for="filtro-categoria">Filtrar por categoría</label>
+                <select id="filtro-categoria" class="search-bar">
+                    <option value="Todos">Mostrar todos</option>
+                    <option value="Musculación">Musculación</option>
+                    <option value="Pase Libre">Pase Libre</option>
+                    <option value="Crossfit">Crossfit</option>
+                    <option value="VIP Premium">VIP Premium</option>
+                </select>
+
+                <div class="total-panel">
+                    Ingresos mensuales esperados
+                    <strong id="ingresos-totales" aria-live="polite">$0</strong>
+                </div>
+                <p id="cantidad-socios" class="cantidad-socios">0 socios registrados</p>
+                <button type="button" id="btn-vaciar" class="btn-vaciar">Vaciar todo el padrón</button>
+            </article>
+        </section>
+
+        <p id="estado-conexion" class="estado-conexion" role="status" aria-live="polite">Preparando la aplicación...</p>
+        <section class="card-panel panel-padron" aria-labelledby="titulo-padron">
+            <h2 id="titulo-padron">Padrón de socios activos</h2>
+            <div id="contenedor-socios" aria-live="polite">
+                <p class="mensaje-vacio">Cargando socios...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto final de JavaScript · Sistema de Gestión de Socios</p>
+    </footer>
+</body>
+</html>

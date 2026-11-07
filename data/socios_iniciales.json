@@ -1,0 +1,20 @@
+[
+    {
+        "nombre": "Gonzalo Pérez",
+        "edad": 28,
+        "categoria": "Musculación",
+        "cuotaBase": 15000
+    },
+    {
+        "nombre": "Martina Gómez",
+        "edad": 34,
+        "categoria": "Pase Libre",
+        "cuotaBase": 22000
+    },
+    {
+        "nombre": "Ariel Rodríguez",
+        "edad": 19,
+        "categoria": "Crossfit",
+        "cuotaBase": 18000
+    }
+]
